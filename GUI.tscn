@@ -1,0 +1,122 @@
+[gd_scene load_steps=13 format=3 uid="uid://ci8axt2xke62i"]
+
+[ext_resource type="PackedScene" uid="uid://bgntrngwj02gu" path="res://battery.tscn" id="1_nqm25"]
+[ext_resource type="FontFile" uid="uid://cgvvro8scnh3l" path="res://resources/fonts/Silver.ttf" id="2_7ixoa"]
+[ext_resource type="Script" path="res://cambattery.gd" id="2_psrct"]
+[ext_resource type="Script" path="res://cam_timer.gd" id="3_nv225"]
+[ext_resource type="Script" path="res://flashbattery.gd" id="4_tput8"]
+[ext_resource type="Script" path="res://flash_timer.gd" id="5_ymohy"]
+[ext_resource type="Shader" path="res://nightvision.gdshader" id="7_n8qyc"]
+[ext_resource type="Script" path="res://CameraFilter.gd" id="7_utgub"]
+[ext_resource type="Shader" path="res://brightnessShader.gdshader" id="8_ildgc"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3kkgm"]
+blend_mode = 3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i7cfk"]
+shader = ExtResource("7_n8qyc")
+shader_parameter/u_amount = 0.502
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j5sff"]
+shader = ExtResource("8_ildgc")
+shader_parameter/onoff = null
+shader_parameter/alpha = null
+shader_parameter/brightness = -0.113
+shader_parameter/contrast = 3.0
+shader_parameter/saturation = 0.62
+shader_parameter/redVal = 1.0
+shader_parameter/greenVal = 1.0
+shader_parameter/blueVal = 1.0
+shader_parameter/tint_color = Color(1, 1, 1, 1)
+shader_parameter/tint_effect_factor = 0.0
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 5.0
+offset_right = 380.0
+offset_bottom = 45.0
+
+[node name="cam battery" parent="VBoxContainer" instance=ExtResource("1_nqm25")]
+position = Vector2(20, 10)
+script = ExtResource("2_psrct")
+
+[node name="cam_timer" type="Timer" parent="VBoxContainer/cam battery"]
+wait_time = 10.0
+script = ExtResource("3_nv225")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 15
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7ixoa")
+theme_override_font_sizes/font_size = 19
+text = "cam"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 5.0
+offset_right = 415.0
+offset_bottom = 45.0
+
+[node name="flash battery" parent="VBoxContainer2" instance=ExtResource("1_nqm25")]
+position = Vector2(20, 10)
+script = ExtResource("4_tput8")
+
+[node name="flash_timer" type="Timer" parent="VBoxContainer2/flash battery"]
+wait_time = 45.0
+script = ExtResource("5_ymohy")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_top = 15
+
+[node name="Label" type="Label" parent="VBoxContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7ixoa")
+theme_override_font_sizes/font_size = 19
+text = "fla"
+horizontal_alignment = 1
+
+[node name="CAM_EFFECTS" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_utgub")
+
+[node name="ColorRect" type="ColorRect" parent="CAM_EFFECTS"]
+material = SubResource("CanvasItemMaterial_3kkgm")
+layout_mode = 0
+offset_right = 426.0
+offset_bottom = 241.0
+color = Color(0.615686, 0.709804, 0.568627, 0.513726)
+
+[node name="TextureRect" type="ColorRect" parent="CAM_EFFECTS"]
+material = SubResource("ShaderMaterial_i7cfk")
+layout_mode = 0
+offset_right = 426.0
+offset_bottom = 240.0
+color = Color(0.396078, 0.968627, 0.203922, 0.290196)
+
+[node name="TextureRect2" type="TextureRect" parent="CAM_EFFECTS"]
+material = SubResource("ShaderMaterial_j5sff")
+layout_mode = 0
+offset_right = 427.0
+offset_bottom = 240.0
+
+[connection signal="batteryDead" from="VBoxContainer/cam battery" to="CAM_EFFECTS" method="_on_cam_battery_battery_dead"]
+[connection signal="timeout" from="VBoxContainer/cam battery/cam_timer" to="VBoxContainer/cam battery" method="_on_cam_timer_timeout"]
+[connection signal="batteryDead" from="VBoxContainer2/flash battery" to="CAM_EFFECTS" method="_on_flash_battery_battery_dead"]
+[connection signal="timeout" from="VBoxContainer2/flash battery/flash_timer" to="VBoxContainer2/flash battery" method="_on_flash_timer_timeout"]

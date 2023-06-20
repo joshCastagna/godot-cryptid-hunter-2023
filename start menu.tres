@@ -1,0 +1,41 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bjygifv5b4ocy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k3juh"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tp0wd"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4o8c"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oedje"]
+content_margin_left = 5.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[resource]
+ScrollContainer/styles/panel = SubResource("StyleBoxFlat_k3juh")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_tp0wd")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_tp0wd")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_y4o8c")
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_oedje")

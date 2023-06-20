@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://b200hqvlemmv7"]
+
+[ext_resource type="Shader" path="res://brightnessShader.gdshader" id="1_5i8yj"]
+[ext_resource type="Script" path="res://player.gd" id="1_riq63"]
+[ext_resource type="Texture2D" uid="uid://c4fksc70h2elo" path="res://resources/art/sprites/Player/pc_idle sheet.png" id="2_rfjrc"]
+[ext_resource type="Script" path="res://playerspritescript.gd" id="4_ksf0u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3qk71"]
+shader = ExtResource("1_5i8yj")
+shader_parameter/onoff = 0.0
+shader_parameter/alpha = 0.0
+shader_parameter/brightness = 0.0
+shader_parameter/contrast = 1.0
+shader_parameter/saturation = 1.0
+shader_parameter/redVal = 1.0
+shader_parameter/greenVal = 1.0
+shader_parameter/blueVal = 1.0
+shader_parameter/tint_color = Color(1, 1, 1, 0)
+shader_parameter/tint_effect_factor = 0.0
+
+[node name="Player" type="CharacterBody2D"]
+texture_filter = 1
+script = ExtResource("1_riq63")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_3qk71")
+texture = ExtResource("2_rfjrc")
+hframes = 3
+script = ExtResource("4_ksf0u")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgntrngwj02gu"]
+
+[ext_resource type="Texture2D" uid="uid://bev3xk1qd4owu" path="res://resources/art/sprites/battery spritesheet.png" id="1_cucgi"]
+[ext_resource type="Script" path="res://battery.gd" id="2_rktda"]
+
+[node name="battery" type="Sprite2D"]
+texture_filter = 1
+texture = ExtResource("1_cucgi")
+hframes = 5
+script = ExtResource("2_rktda")

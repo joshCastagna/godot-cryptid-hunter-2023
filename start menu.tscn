@@ -1,0 +1,128 @@
+[gd_scene load_steps=14 format=3 uid="uid://bq4gl2kxx1nsx"]
+
+[ext_resource type="Texture2D" uid="uid://c8n82snkwl7si" path="res://resources/MainMenu/menu basic.png" id="1_3iu2t"]
+[ext_resource type="Texture2D" uid="uid://ctr82gk7kwoii" path="res://resources/MainMenu/button_credits.png" id="2_1ucvl"]
+[ext_resource type="Texture2D" uid="uid://21e3l03fd2dj" path="res://resources/MainMenu/button_start.png" id="2_chsmt"]
+[ext_resource type="Texture2D" uid="uid://bfjmrqltlabnf" path="res://resources/MainMenu/button_credits_hover.png" id="3_4wp15"]
+[ext_resource type="Texture2D" uid="uid://by56bnwl7kx1t" path="res://resources/MainMenu/button_start_hover.png" id="3_o28gb"]
+[ext_resource type="Texture2D" uid="uid://drrsmc44t710u" path="res://resources/MainMenu/button_load.png" id="4_tjmaa"]
+[ext_resource type="Texture2D" uid="uid://xmgbiyan4obt" path="res://resources/MainMenu/button_load_hover.png" id="5_gpxt5"]
+[ext_resource type="Texture2D" uid="uid://b3rhbyapwluhx" path="res://resources/MainMenu/exit_button.png" id="6_e8bnq"]
+[ext_resource type="Texture2D" uid="uid://qnv5n1a8rwjo" path="res://resources/MainMenu/exit_button_hover.png" id="7_8aaik"]
+[ext_resource type="Script" path="res://creditpanel.gd" id="8_tubjf"]
+[ext_resource type="Theme" uid="uid://bjygifv5b4ocy" path="res://start menu.tres" id="8_y2phe"]
+[ext_resource type="FontFile" uid="uid://cgvvro8scnh3l" path="res://resources/fonts/Silver.ttf" id="10_iyp8o"]
+[ext_resource type="Script" path="res://credit_text.gd" id="11_nolep"]
+
+[node name="Start Page" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 426.0
+offset_bottom = 240.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 426.0
+offset_bottom = 240.0
+texture = ExtResource("1_3iu2t")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_left = 338.0
+offset_top = 83.0
+offset_right = 412.0
+offset_bottom = 161.0
+
+[node name="MarginContainer" type="MarginContainer" parent="BoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="BoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Start_button" type="TextureButton" parent="BoxContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_chsmt")
+texture_hover = ExtResource("3_o28gb")
+
+[node name="MarginContainer2" type="MarginContainer" parent="BoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Load_button" type="TextureButton" parent="BoxContainer/MarginContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("4_tjmaa")
+texture_pressed = ExtResource("5_gpxt5")
+texture_hover = ExtResource("5_gpxt5")
+
+[node name="MarginContainer3" type="MarginContainer" parent="BoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Exit_button" type="TextureButton" parent="BoxContainer/MarginContainer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+texture_normal = ExtResource("6_e8bnq")
+texture_pressed = ExtResource("7_8aaik")
+texture_hover = ExtResource("7_8aaik")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(426, 240)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_tubjf")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(350, 195)
+layout_mode = 2
+theme = ExtResource("8_y2phe")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CenterContainer/ScrollContainer/MarginContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(335, 0)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("10_iyp8o")
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "[center]CREDITS[/center]
+
+Game created by Joshua Castagna for CSCI 43700
+
+FONTS
+“[url=https://www.dafont.com/notepen.font]Notepen[/url]” by [url=https://fontenddev.com/]Font End Dev[/url] is licensed under [url=http://creativecommons.org/licenses/by/4.0/]CC BY 4.0[/url]
+“[url=https://poppyworks.itch.io/silver]Silver[/url]” by [url=http://poppy.works/]Poppy Works[/url] is licensed under [url=http://creativecommons.org/licenses/by/4.0/]CC BY 4.0[/url]
+
+AUDIO
+
+ASSETS"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+script = ExtResource("11_nolep")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 220.0
+offset_right = 429.0
+offset_bottom = 271.0
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_1ucvl")
+texture_pressed = ExtResource("3_4wp15")
+texture_hover = ExtResource("3_4wp15")
+
+[connection signal="meta_clicked" from="CenterContainer/ScrollContainer/MarginContainer/RichTextLabel2" to="CenterContainer/ScrollContainer/MarginContainer/RichTextLabel2" method="_on_meta_clicked"]
+[connection signal="pressed" from="VBoxContainer/TextureButton" to="CenterContainer" method="_on_texture_button_pressed"]
