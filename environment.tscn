@@ -25,3 +25,8 @@ remote_path = NodePath("../../World@Camera2D")
 position = Vector2(139, 100)
 limit_smoothed = true
 rotation_smoothing_enabled = true
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="World"]
+color = Color(0.0313726, 0.0352941, 0.027451, 1)
+energy = 0.52
+blend_mode = 2

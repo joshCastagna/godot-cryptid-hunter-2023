@@ -53,10 +53,9 @@ func _process(delta):
 	elif Input.is_action_just_pressed("KEY_F") and !flashActive and !flashDead:
 		#turning on flashlight	
 		flashActive = true
-		camActive = false
 	elif Input.is_action_just_pressed("KEY_F") or flashDead:
 		flashActive = false
-	
+		
 	updateAnimation()	
 		
 func toggleCamShader(cs):

@@ -106,6 +106,13 @@ offset_right = 426.0
 offset_bottom = 241.0
 color = Color(0.615686, 0.709804, 0.568627, 0.513726)
 
+[node name="ColorRect2" type="ColorRect" parent="CAM_EFFECTS"]
+material = SubResource("CanvasItemMaterial_3kkgm")
+layout_mode = 0
+offset_right = 426.0
+offset_bottom = 241.0
+color = Color(0.615686, 0.709804, 0.568627, 0.513726)
+
 [node name="TextureRect" type="ColorRect" parent="CAM_EFFECTS"]
 material = SubResource("ShaderMaterial_i7cfk")
 layout_mode = 0

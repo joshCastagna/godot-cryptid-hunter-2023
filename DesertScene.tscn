@@ -1,3 +1,31 @@
-[gd_scene format=3 uid="uid://uxgq2sj07yaf"]
+[gd_scene load_steps=5 format=3 uid="uid://uxgq2sj07yaf"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Script" path="res://environment.gd" id="1_s3ae3"]
+[ext_resource type="PackedScene" uid="uid://ci8axt2xke62i" path="res://GUI.tscn" id="1_xstgx"]
+[ext_resource type="PackedScene" uid="uid://b4remndmouesp" path="res://DesertMap.tscn" id="2_3jbg7"]
+[ext_resource type="PackedScene" uid="uid://b200hqvlemmv7" path="res://player.tscn" id="3_uqo4o"]
+
+[node name="DesertLevel" type="Node2D"]
+script = ExtResource("1_s3ae3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" parent="CanvasLayer" instance=ExtResource("1_xstgx")]
+
+[node name="World" parent="." instance=ExtResource("2_3jbg7")]
+
+[node name="Player" parent="World" instance=ExtResource("3_uqo4o")]
+position = Vector2(139, 100)
+
+[node name="WorldPlayerRemoteTransform2D" type="RemoteTransform2D" parent="World/Player"]
+remote_path = NodePath("../../WorldCamera2D")
+
+[node name="WorldCamera2D" type="Camera2D" parent="World"]
+position = Vector2(139, 100)
+limit_smoothed = true
+rotation_smoothing_enabled = true
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="World"]
+color = Color(0.0705882, 0.0627451, 0.0627451, 1)
+energy = 12.99
+blend_mode = 1

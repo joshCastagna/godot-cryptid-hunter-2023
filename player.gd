@@ -30,9 +30,11 @@ func _process(delta):
 		self.material = cameraShader
 		print("shader on")
 		camOn = true
+		self.use_parent_material = false
 	elif Input.is_action_just_pressed("KEY_C") and camOn :
 		self.material = null
 		camOn = false
+		self.use_parent_material = true
 
 func _physics_process(delta):
 	movementInput()
