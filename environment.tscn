@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1niuolaqtrl3"]
+[gd_scene load_steps=6 format=3 uid="uid://d1niuolaqtrl3"]
 
 [ext_resource type="PackedScene" uid="uid://b200hqvlemmv7" path="res://player.tscn" id="1_2lncw"]
 [ext_resource type="Script" path="res://environment.gd" id="1_w6bv3"]
 [ext_resource type="PackedScene" uid="uid://ci8axt2xke62i" path="res://GUI.tscn" id="2_eva5m"]
 [ext_resource type="PackedScene" uid="uid://p20eu1fxdm04" path="res://Tilemaps.tscn" id="3_qwht1"]
+[ext_resource type="PackedScene" uid="uid://c7n10rafsegv4" path="res://pauseMenu.tscn" id="5_44cv4"]
 
 [node name="Environment" type="Node2D"]
 y_sort_enabled = true
@@ -12,6 +13,8 @@ script = ExtResource("1_w6bv3")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource("2_eva5m")]
+
+[node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("5_44cv4")]
 
 [node name="World" parent="." instance=ExtResource("3_qwht1")]
 

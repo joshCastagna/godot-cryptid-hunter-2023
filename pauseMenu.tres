@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://d16wluv1h04ut"]
+
+[ext_resource type="FontFile" uid="uid://cgvvro8scnh3l" path="res://resources/fonts/Silver.ttf" id="1_6smlv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xcgta"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0htan"]
+bg_color = Color(0, 0, 0, 0)
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q5k72"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjkbl"]
+bg_color = Color(1, 1, 1, 1)
+anti_aliasing = false
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/constants/h_separation = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 19
+Button/fonts/font = ExtResource("1_6smlv")
+Button/styles/focus = SubResource("StyleBoxEmpty_xcgta")
+Button/styles/hover = SubResource("StyleBoxFlat_0htan")
+Button/styles/normal = SubResource("StyleBoxEmpty_q5k72")
+Button/styles/pressed = SubResource("StyleBoxFlat_rjkbl")

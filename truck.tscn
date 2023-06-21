@@ -1,9 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj5x0l1knyjoj"]
+[gd_scene load_steps=5 format=3 uid="uid://dj5x0l1knyjoj"]
 
 [ext_resource type="Texture2D" uid="uid://bldlq5eryc3pg" path="res://resources/art/environment/truck.png" id="1_ymhyf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_erof6"]
 size = Vector2(155, 16)
+
+[sub_resource type="Gradient" id="Gradient_ax683"]
+offsets = PackedFloat32Array(0, 0.111111, 0.633987, 0.712418)
+colors = PackedColorArray(1, 1, 1, 1, 0.45098, 0.45098, 0.45098, 1, 0.0644258, 0.0644258, 0.0644258, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cfk7j"]
+gradient = SubResource("Gradient_ax683")
+fill = 1
+fill_from = Vector2(0.509259, 0.486111)
 
 [node name="Truck" type="Sprite2D"]
 z_index = 1
@@ -15,3 +24,14 @@ texture = ExtResource("1_ymhyf")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(2, 8)
 shape = SubResource("RectangleShape2D_erof6")
+
+[node name="PointLight2D" type="PointLight2D" parent="StaticBody2D"]
+position = Vector2(-44, 9)
+color = Color(1, 0.823529, 0.419608, 1)
+texture = SubResource("GradientTexture2D_cfk7j")
+
+[node name="PointLight2D2" type="PointLight2D" parent="StaticBody2D"]
+position = Vector2(-75, 7)
+color = Color(1, 0.823529, 0.419608, 1)
+energy = 0.69
+texture = SubResource("GradientTexture2D_cfk7j")

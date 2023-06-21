@@ -1,0 +1,86 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7n10rafsegv4"]
+
+[ext_resource type="Theme" uid="uid://d16wluv1h04ut" path="res://pauseMenu.tres" id="1_dpowf"]
+[ext_resource type="Script" path="res://pauseMenu.gd" id="1_qwtml"]
+
+[sub_resource type="Theme" id="Theme_l2iv2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8lmva"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[node name="Pause Menu" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qwtml")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 426.0
+offset_bottom = 240.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="PauseMenu" type="Panel" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+theme = SubResource("Theme_l2iv2")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8lmva")
+
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/PanelContainer/PauseMenu"]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/PauseMenu/CenterContainer"]
+z_index = 11
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MarginContainer2" type="MarginContainer" parent="CenterContainer/PanelContainer/PauseMenu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="MainMenuBttn" type="Button" parent="CenterContainer/PanelContainer/PauseMenu/CenterContainer/VBoxContainer/MarginContainer2"]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_dpowf")
+text = "Main Menu"
+flat = true
+
+[node name="MM" type="Button" parent="CenterContainer/PanelContainer/PauseMenu/CenterContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("1_dpowf")
+theme_override_font_sizes/font_size = 19
+text = " Main Menu "
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer/PauseMenu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 5
+
+[node name="QuitBttn" type="Button" parent="CenterContainer/PanelContainer/PauseMenu/CenterContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme = ExtResource("1_dpowf")
+theme_override_font_sizes/font_size = 19
+text = "Exit"
+
+[connection signal="pressed" from="CenterContainer/PanelContainer/PauseMenu/CenterContainer/VBoxContainer/MarginContainer2/MM" to="." method="_on_mm_pressed"]
+[connection signal="pressed" from="CenterContainer/PanelContainer/PauseMenu/CenterContainer/VBoxContainer/MarginContainer/QuitBttn" to="." method="_on_quit_bttn_pressed"]

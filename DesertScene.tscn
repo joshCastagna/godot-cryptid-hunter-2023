@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://uxgq2sj07yaf"]
+[gd_scene load_steps=6 format=3 uid="uid://uxgq2sj07yaf"]
 
 [ext_resource type="Script" path="res://environment.gd" id="1_s3ae3"]
 [ext_resource type="PackedScene" uid="uid://ci8axt2xke62i" path="res://GUI.tscn" id="1_xstgx"]
 [ext_resource type="PackedScene" uid="uid://b4remndmouesp" path="res://DesertMap.tscn" id="2_3jbg7"]
+[ext_resource type="PackedScene" uid="uid://c7n10rafsegv4" path="res://pauseMenu.tscn" id="3_ejaok"]
 [ext_resource type="PackedScene" uid="uid://b200hqvlemmv7" path="res://player.tscn" id="3_uqo4o"]
 
 [node name="DesertLevel" type="Node2D"]
@@ -11,6 +12,8 @@ script = ExtResource("1_s3ae3")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GUI" parent="CanvasLayer" instance=ExtResource("1_xstgx")]
+
+[node name="Pause Menu" parent="CanvasLayer" instance=ExtResource("3_ejaok")]
 
 [node name="World" parent="." instance=ExtResource("2_3jbg7")]
 

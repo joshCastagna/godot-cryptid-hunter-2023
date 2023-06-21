@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://c5uf7f5usx26f"]
+
+[ext_resource type="Script" path="res://level_menu.gd" id="1_6nr02"]
+[ext_resource type="Texture2D" uid="uid://bgx7b0uk4iptf" path="res://resources/art/gameplay art/combat bg1.png" id="1_55wjk"]
+[ext_resource type="Theme" uid="uid://oo5c5gue1oc2" path="res://level_menu.tres" id="2_mpd58"]
+
+[node name="Level Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6nr02")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 426.0
+offset_bottom = 240.0
+texture = ExtResource("1_55wjk")
+
+[node name="Select Level Label" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 426.0
+offset_bottom = 133.0
+
+[node name="Label" type="Label" parent="Select Level Label"]
+layout_mode = 2
+theme = ExtResource("2_mpd58")
+text = "Select Level"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 426.0
+offset_bottom = 241.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="ForestLevel_button" type="Button" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_mpd58")
+text = "Forest"
+
+[node name="Desert_Level_button" type="Button" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_mpd58")
+text = "Desert"
+
+[connection signal="pressed" from="CenterContainer/HBoxContainer/ForestLevel_button" to="." method="_on_forest_level_button_pressed"]
+[connection signal="pressed" from="CenterContainer/HBoxContainer/Desert_Level_button" to="." method="_on_desert_level_button_pressed"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://bq4gl2kxx1nsx"]
+[gd_scene load_steps=15 format=3 uid="uid://bq4gl2kxx1nsx"]
 
+[ext_resource type="Script" path="res://start menu.gd" id="1_2odk1"]
 [ext_resource type="Texture2D" uid="uid://c8n82snkwl7si" path="res://resources/MainMenu/menu basic.png" id="1_3iu2t"]
 [ext_resource type="Texture2D" uid="uid://ctr82gk7kwoii" path="res://resources/MainMenu/button_credits.png" id="2_1ucvl"]
 [ext_resource type="Texture2D" uid="uid://21e3l03fd2dj" path="res://resources/MainMenu/button_start.png" id="2_chsmt"]
@@ -19,6 +20,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 426.0
 offset_bottom = 240.0
+script = ExtResource("1_2odk1")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -124,5 +126,7 @@ texture_normal = ExtResource("2_1ucvl")
 texture_pressed = ExtResource("3_4wp15")
 texture_hover = ExtResource("3_4wp15")
 
+[connection signal="pressed" from="BoxContainer/MarginContainer/VBoxContainer/MarginContainer/Start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="BoxContainer/MarginContainer/VBoxContainer/MarginContainer3/Exit_button" to="." method="_on_exit_button_pressed"]
 [connection signal="meta_clicked" from="CenterContainer/ScrollContainer/MarginContainer/RichTextLabel2" to="CenterContainer/ScrollContainer/MarginContainer/RichTextLabel2" method="_on_meta_clicked"]
 [connection signal="pressed" from="VBoxContainer/TextureButton" to="CenterContainer" method="_on_texture_button_pressed"]
