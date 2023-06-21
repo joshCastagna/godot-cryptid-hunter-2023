@@ -16,6 +16,15 @@ func movementInput():
 		speed = 100
 	velocity = direction * speed
 
+func updateAnimation():
+	
+		var direction = "Down"
+		if velocity.x < 0: direction = "Left"
+		elif velocity.x > 0: direction = "Right"
+		elif velocity.y < 0: direction = "Up"
+		
+		self.animations.play()
+
 func _process(delta):
 	if Input.is_action_just_pressed("KEY_C") and !camOn :
 		self.material = cameraShader

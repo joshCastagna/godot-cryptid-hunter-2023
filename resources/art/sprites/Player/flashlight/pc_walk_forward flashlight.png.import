@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drgksmxtp1bbo"
-path="res://.godot/imported/pc_walk_right cam.png-97586a41aeb527dfca36856b5676f44b.ctex"
+uid="uid://bleagqnxyqus1"
+path="res://.godot/imported/pc_walk_forward flashlight.png-646f99550eddaff89420d75d0f3d8239.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/art/sprites/Player/pc_walk_right cam.png"
-dest_files=["res://.godot/imported/pc_walk_right cam.png-97586a41aeb527dfca36856b5676f44b.ctex"]
+source_file="res://resources/art/sprites/Player/flashlight/pc_walk_forward flashlight.png"
+dest_files=["res://.godot/imported/pc_walk_forward flashlight.png-646f99550eddaff89420d75d0f3d8239.ctex"]
 
 [params]
 

@@ -4,6 +4,7 @@ extends Sprite2D
 var charge = 100
 signal batteryDead(charge_val)
 signal batteryCharged(charge_val)
+var flashBatteryDead = false
 
 func _process(delta):
 	# checking to decrease battery
@@ -28,5 +29,5 @@ func _on_flash_timer_timeout():
 	if charge > 0:
 		charge -= 25
 	if charge == 0:
-			print("battery dead")
+			flashBatteryDead = true
 			batteryDead.emit(self.charge) # will signal to stop use of tool

@@ -1,13 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1niuolaqtrl3"]
+[gd_scene load_steps=5 format=3 uid="uid://d1niuolaqtrl3"]
 
 [ext_resource type="PackedScene" uid="uid://b200hqvlemmv7" path="res://player.tscn" id="1_2lncw"]
 [ext_resource type="Script" path="res://environment.gd" id="1_w6bv3"]
 [ext_resource type="PackedScene" uid="uid://ci8axt2xke62i" path="res://GUI.tscn" id="2_eva5m"]
+[ext_resource type="PackedScene" uid="uid://p20eu1fxdm04" path="res://Tilemaps.tscn" id="3_qwht1"]
 
 [node name="Environment" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_w6bv3")
 
-[node name="Player" parent="." instance=ExtResource("1_2lncw")]
-position = Vector2(93, 44)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="GUI" parent="." instance=ExtResource("2_eva5m")]
+[node name="GUI" parent="CanvasLayer" instance=ExtResource("2_eva5m")]
+
+[node name="World" parent="." instance=ExtResource("3_qwht1")]
+
+[node name="Player" parent="World" instance=ExtResource("1_2lncw")]
+position = Vector2(139, 100)
+
+[node name="WorldPlayerRemoteTransform2D" type="RemoteTransform2D" parent="World/Player"]
+remote_path = NodePath("../../World@Camera2D")
+
+[node name="World@Camera2D" type="Camera2D" parent="World"]
+position = Vector2(139, 100)
+limit_smoothed = true
+rotation_smoothing_enabled = true

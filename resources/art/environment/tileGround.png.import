@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjw1gsjgh2un0"
-path="res://.godot/imported/pc_base sheet.png-95b84b9504b51c5771e87937c6d30c4a.ctex"
+uid="uid://crjjbp4vxqf4w"
+path="res://.godot/imported/tileGround.png-6a8c57a7790acb0fed73d8bdeab35f45.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/art/sprites/Player/pc_base sheet.png"
-dest_files=["res://.godot/imported/pc_base sheet.png-95b84b9504b51c5771e87937c6d30c4a.ctex"]
+source_file="res://resources/art/environment/tileGround.png"
+dest_files=["res://.godot/imported/tileGround.png-6a8c57a7790acb0fed73d8bdeab35f45.ctex"]
 
 [params]
 

@@ -38,52 +38,54 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="CAMERA BATTERY" type="VBoxContainer" parent="."]
+z_index = 9
 layout_mode = 0
 offset_left = 340.0
 offset_top = 5.0
 offset_right = 380.0
 offset_bottom = 45.0
 
-[node name="cam battery" parent="VBoxContainer" instance=ExtResource("1_nqm25")]
+[node name="cam battery" parent="CAMERA BATTERY" instance=ExtResource("1_nqm25")]
 position = Vector2(20, 10)
 script = ExtResource("2_psrct")
 
-[node name="cam_timer" type="Timer" parent="VBoxContainer/cam battery"]
-wait_time = 10.0
+[node name="cam_timer" type="Timer" parent="CAMERA BATTERY/cam battery"]
+wait_time = 30.0
 script = ExtResource("3_nv225")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CAMERA BATTERY"]
 layout_mode = 2
 theme_override_constants/margin_top = 15
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer"]
+[node name="Label" type="Label" parent="CAMERA BATTERY/MarginContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_7ixoa")
 theme_override_font_sizes/font_size = 19
 text = "cam"
 horizontal_alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="FLASHLIGHT BATTERY" type="VBoxContainer" parent="."]
+z_index = 9
 layout_mode = 0
 offset_left = 375.0
 offset_top = 5.0
 offset_right = 415.0
 offset_bottom = 45.0
 
-[node name="flash battery" parent="VBoxContainer2" instance=ExtResource("1_nqm25")]
+[node name="flash battery" parent="FLASHLIGHT BATTERY" instance=ExtResource("1_nqm25")]
 position = Vector2(20, 10)
 script = ExtResource("4_tput8")
 
-[node name="flash_timer" type="Timer" parent="VBoxContainer2/flash battery"]
+[node name="flash_timer" type="Timer" parent="FLASHLIGHT BATTERY/flash battery"]
 wait_time = 45.0
 script = ExtResource("5_ymohy")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="FLASHLIGHT BATTERY"]
 layout_mode = 2
 theme_override_constants/margin_top = 15
 
-[node name="Label" type="Label" parent="VBoxContainer2/MarginContainer"]
+[node name="Label" type="Label" parent="FLASHLIGHT BATTERY/MarginContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_7ixoa")
 theme_override_font_sizes/font_size = 19
@@ -91,6 +93,7 @@ text = "fla"
 horizontal_alignment = 1
 
 [node name="CAM_EFFECTS" type="Control" parent="."]
+z_index = 10
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -116,7 +119,11 @@ layout_mode = 0
 offset_right = 427.0
 offset_bottom = 240.0
 
-[connection signal="batteryDead" from="VBoxContainer/cam battery" to="CAM_EFFECTS" method="_on_cam_battery_battery_dead"]
-[connection signal="timeout" from="VBoxContainer/cam battery/cam_timer" to="VBoxContainer/cam battery" method="_on_cam_timer_timeout"]
-[connection signal="batteryDead" from="VBoxContainer2/flash battery" to="CAM_EFFECTS" method="_on_flash_battery_battery_dead"]
-[connection signal="timeout" from="VBoxContainer2/flash battery/flash_timer" to="VBoxContainer2/flash battery" method="_on_flash_timer_timeout"]
+[connection signal="batteryDead" from="CAMERA BATTERY/cam battery" to="CAM_EFFECTS" method="_on_cam_battery_battery_dead"]
+[connection signal="camActive" from="CAMERA BATTERY/cam battery/cam_timer" to="FLASHLIGHT BATTERY/flash battery/flash_timer" method="_on_cam_timer_cam_active"]
+[connection signal="camInactive" from="CAMERA BATTERY/cam battery/cam_timer" to="FLASHLIGHT BATTERY/flash battery/flash_timer" method="_on_cam_timer_cam_inactive"]
+[connection signal="timeout" from="CAMERA BATTERY/cam battery/cam_timer" to="CAMERA BATTERY/cam battery" method="_on_cam_timer_timeout"]
+[connection signal="batteryDead" from="FLASHLIGHT BATTERY/flash battery" to="CAM_EFFECTS" method="_on_flash_battery_battery_dead"]
+[connection signal="flashActive" from="FLASHLIGHT BATTERY/flash battery/flash_timer" to="CAMERA BATTERY/cam battery/cam_timer" method="_on_flash_timer_flash_active"]
+[connection signal="flashInactive" from="FLASHLIGHT BATTERY/flash battery/flash_timer" to="CAMERA BATTERY/cam battery/cam_timer" method="_on_flash_timer_flash_inactive"]
+[connection signal="timeout" from="FLASHLIGHT BATTERY/flash battery/flash_timer" to="FLASHLIGHT BATTERY/flash battery" method="_on_flash_timer_timeout"]
